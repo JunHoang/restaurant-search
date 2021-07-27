@@ -4,7 +4,7 @@ import SearchBar from "../components/SearchBar";
 import useResults from "../hooks/useResults";
 import ResultsList from "../components/ResultsList";
 
-export default function SearchScreen({ navigation }) {
+export default function SearchScreen({}) {
   const [term, setTerm] = useState("");
   const [searchApi, results, errorMessage] = useResults();
 
@@ -24,7 +24,6 @@ export default function SearchScreen({ navigation }) {
       />
       {errorMessage ? <Text>{errorMessage}</Text> : null}
       <ScrollView>
-        <Text>We have found {results.length} results</Text>
         <ResultsList
           title="Cost Effective"
           results={filterResultsByPrice("€")}
