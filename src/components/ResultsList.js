@@ -1,10 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function ResultsList({ title }) {
+export default function ResultsList({ title, results }) {
   return (
     <View>
       <Text style={styles.title}>{title}</Text>
+      <Text>Results: {results.length}</Text>
     </View>
   );
 }
