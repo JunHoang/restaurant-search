@@ -24,9 +24,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#D8D8D8",
     height: 50,
     borderRadius: 5,
-    marginHorizontal: 15,
+    margin: 15,
     flexDirection: "row",
-    marginTop: 15,
   },
   iconStyle: {
     fontSize: 35,
