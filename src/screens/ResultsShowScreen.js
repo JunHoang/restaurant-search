@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { get } from "react-native/Libraries/Utilities/PixelRatio";
+import { StyleSheet, Text, View, FlatList, Image } from "react-native";
 import yelp from "../api/yelp";
 
 export default function ResultsShowScreen({ navigation }) {
@@ -11,7 +10,6 @@ export default function ResultsShowScreen({ navigation }) {
     const response = await yelp.get(`/${id}`);
     setResult(response.data);
   };
-  console.log(result);
 
   useEffect(() => {
     getResult(id);
@@ -23,9 +21,27 @@ export default function ResultsShowScreen({ navigation }) {
 
   return (
     <View>
-      <Text>{result.name}</Text>
+      <Text style={styles.name}>{result.name}</Text>
+      <FlatList
+        data={result.photos}
+        keyExtractor={(photo) => photo}
+        renderItem={({ item }) => {
+          return <Image style={styles.image} source={{ uri: item }} />;
+        }}
+      />
     </View>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  name: {
+    fontSize: 20,
+    fontWeight: "bold",
+    margin: 10,
+  },
+  image: {
+    height: 200,
+    width: 300,
+    margin: 10,
+  },
+});
