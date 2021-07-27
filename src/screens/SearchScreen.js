@@ -4,7 +4,7 @@ import SearchBar from "../components/SearchBar";
 import useResults from "../hooks/useResults";
 import ResultsList from "../components/ResultsList";
 
-export default function SearchScreen() {
+export default function SearchScreen({ navigation }) {
   const [term, setTerm] = useState("");
   const [searchApi, results, errorMessage] = useResults();
 
