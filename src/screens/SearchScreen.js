@@ -16,7 +16,7 @@ export default function SearchScreen() {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <>
       <SearchBar
         term={term}
         onTermChange={setTerm}
@@ -35,7 +35,7 @@ export default function SearchScreen() {
           results={filterResultsByPrice("€€€")}
         />
       </ScrollView>
-    </View>
+    </>
   );
 }
 
