@@ -3,9 +3,15 @@ import { StyleSheet, Text, View, Image } from "react-native";
 
 export default function ResultsDetail({ result }) {
   const { image_url, name, rating, review_count } = result;
+  const defaultImgUrl =
+    "http://www.staticwhich.co.uk/static/images/products/no-image/no-image-available.png";
+
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={{ uri: image_url }} />
+      <Image
+        style={styles.image}
+        source={{ uri: image_url || defaultImgUrl }}
+      />
       <Text style={styles.name}>{name}</Text>
       <Text>
         {rating} Stars, {review_count} Reviews
